@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIFER - Intelligence Artificielle & Gestion de Patrimoine</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'monospace'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'cyber-cyan': '#00ffff',
+                        'metallic-gray': '#8b8b8b',
+                        'dark-bg': '#0a0a0a',
+                        'card-dark': '#1a1a1a',
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white overflow-x-hidden min-h-screen flex flex-col">
+    <!-- Background Animation -->
+    <div class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-bg via-gray-900 to-dark-bg"></div>
+        <div class="stars"></div>
+        <div class="moving-grid"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 py-8 lg:py-12" data-aos="fade-down">
+        <div class="container mx-auto px-6">
+            <div class="text-center space-y-4">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-white tracking-[0.2em] relative">
+                    SLIFER
+                    <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-transparent via-cyber-cyan to-transparent opacity-80"></div>
+                </h1>
+                <div class="flex justify-center items-center space-x-4 text-sm text-gray-400 font-inter">
+                    <span class="w-8 h-px bg-gradient-to-r from-transparent to-gray-600"></span>
+                    <span class="tracking-widest">INNOVATION • EXCELLENCE • PERFORMANCE</span>
+                    <span class="w-8 h-px bg-gradient-to-l from-transparent to-gray-600"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 flex-grow flex items-center py-8 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-16">
+                
+                <!-- Slifer Solutions -->
+                <div class="solutions-card group" data-aos="fade-right" data-aos-delay="200">
+                    <div class="tech-card tech-card--primary group">
+                        <!-- Card Header -->
+                        <div class="tech-card__header">
+                            <div class="tech-card__title-section">
+                                <div class="tech-card__logo">
+                                    <div class="logo-frame logo-frame--inline">
+                                        <div class="logo-placeholder">
+                                            <img src="slifersolutions.png" alt="Slifer Solutions Logo" class="w-full h-full object-contain">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card__title-content">
+                                    <h2 class="tech-card__title">SLIFER SOLUTIONS</h2>
+                                    <div class="tech-card__subtitle">Intelligence Artificielle</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="tech-card__content">
+                            <p class="tech-card__description">
+                                Solutions innovantes pour optimiser vos processus et transformer votre entreprise vers le futur numérique. Nous développons des systèmes d'IA sur mesure pour automatiser vos tâches répétitives et maximiser votre efficacité opérationnelle.
+                            </p>
+                            
+                            <div class="tech-card__features">
+                                <div class="feature-tag">AI</div>
+                                <div class="feature-tag">Automatisation</div>
+                                <div class="feature-tag">ROI</div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="tech-card__footer">
+                            <button onclick="openModal('solutions')" class="tech-button tech-button--primary">
+                                <span>Initier contact</span>
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Tech Grid Background -->
+                        <div class="tech-grid"></div>
+                    </div>
+                </div>
+
+                <!-- Slifer Holdings -->
+                <div class="holdings-card group" data-aos="fade-left" data-aos-delay="400">
+                    <div class="tech-card tech-card--secondary group">
+                        <!-- Card Header -->
+                        <div class="tech-card__header">
+                            <div class="tech-card__title-section">
+                                <div class="tech-card__logo">
+                                    <div class="logo-frame logo-frame--inline">
+                                        <div class="logo-placeholder">
+                                            <img src="sliferholdings.png" alt="Slifer Holdings Logo" class="w-full h-full object-contain">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card__title-content">
+                                    <h2 class="tech-card__title">SLIFER HOLDINGS</h2>
+                                    <div class="tech-card__subtitle">Services Immobiliers</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="tech-card__content">
+                            <p class="tech-card__description">
+                                Services spécialisés destinés aux acteurs de l'immobilier pour optimiser leurs opérations et développer leur activité. Nous accompagnons promoteurs, investisseurs et professionnels dans la modernisation de leurs processus pour une meilleure reproductibilité.
+                            </p>
+                            
+                            <div class="tech-card__features">
+                                <div class="feature-tag">Modernisation</div>
+                                <div class="feature-tag">Reproductibilité</div>
+                                <div class="feature-tag">Opérations</div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="tech-card__footer">
+                            <button onclick="openModal('holdings')" class="tech-button tech-button--secondary">
+                                <span>Initier contact</span>
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Tech Grid Background -->
+                        <div class="tech-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 mt-16 py-6 border-t border-gray-800/50" data-aos="fade-up">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-left">
+                    <p class="text-sm text-metallic-gray font-inter">
+                        © 2025 <span class="text-white font-medium">SLIFER SOLUTIONS</span>
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">Tous droits réservés.</p>
+                </div>
+                
+                <div class="flex items-center text-xs text-gray-500 font-inter">
+                    <span onclick="openModal('legal')" class="hover:text-metallic-gray transition-colors cursor-pointer">Mentions légales</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modales de Contact -->
+    
+    <!-- Modal Solutions -->
+    <div id="modal-solutions" class="modal-overlay">
+        <div class="modal-content tech-modal" data-aos="zoom-in">
+            <div class="tech-modal__header">
+                <div class="tech-modal__title">
+                    <div class="tech-modal__icon">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-orbitron font-bold text-cyber-cyan">CONTACT SOLUTIONS</h3>
+                        <p class="text-xs text-gray-400 mt-1">Intelligence Artificielle</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('solutions')" class="tech-modal__close">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="tech-modal__body">
+                <form onsubmit="submitForm(event, 'solutions')" class="space-y-6">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Nom complet *</label>
+                            <input type="text" name="nom" required class="form-input form-input--primary" placeholder="Votre nom">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Email professionnel *</label>
+                            <input type="email" name="email" required class="form-input form-input--primary" placeholder="votre@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label class="form-label">Société</label>
+                        <input type="text" name="societe" class="form-input form-input--primary" placeholder="Nom de votre entreprise">
+                    </div>
+                    
+                    <div class="form-field">
+                        <label class="form-label">Projet IA *</label>
+                        <textarea name="projet_ia" required rows="4" class="form-input form-input--primary" placeholder="Décrivez votre projet d'intelligence artificielle et vos objectifs..."></textarea>
+                    </div>
+                    
+                    <div class="tech-modal__footer">
+                        <button type="submit" class="tech-button tech-button--primary tech-button--full">
+                            <span>Envoyer la demande</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Holdings -->
+    <div id="modal-holdings" class="modal-overlay">
+        <div class="modal-content tech-modal" data-aos="zoom-in">
+            <div class="tech-modal__header">
+                <div class="tech-modal__title">
+                    <div class="tech-modal__icon tech-modal__icon--secondary">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 3.5C14.8 3.2 14.4 3 14 3C13.6 3 13.2 3.2 13 3.5L7 7V9C7 9.6 7.4 10 8 10S9 9.6 9 9V8L12 6.5L15 8V9C15 9.6 15.4 10 16 10S17 9.6 17 9Z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-orbitron font-bold text-cyan-400">CONTACT HOLDINGS</h3>
+                        <p class="text-xs text-gray-400 mt-1">Services Immobiliers</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('holdings')" class="tech-modal__close">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="tech-modal__body">
+                <form onsubmit="submitForm(event, 'holdings')" class="space-y-6">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Nom complet *</label>
+                            <input type="text" name="nom" required class="form-input form-input--secondary" placeholder="Votre nom">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Email professionnel *</label>
+                            <input type="email" name="email" required class="form-input form-input--secondary" placeholder="votre@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label class="form-label">Type d'acteur immobilier</label>
+                        <select name="type_acteur" class="form-input form-input--secondary">
+                            <option value="">Sélectionner votre profil</option>
+                            <option value="promoteur">Promoteur immobilier</option>
+                            <option value="investisseur">Investisseur</option>
+                            <option value="marchand-biens">Marchand de biens</option>
+                            <option value="agent">Agent immobilier</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label class="form-label">Besoins & Objectifs *</label>
+                        <textarea name="besoins_objectifs" required rows="4" class="form-input form-input--secondary" placeholder="Décrivez vos besoins en modernisation, reproductibilité ou optimisation d'opérations..."></textarea>
+                    </div>
+                    
+                    <div class="tech-modal__footer">
+                        <button type="submit" class="tech-button tech-button--secondary tech-button--full">
+                            <span>Envoyer la demande</span>
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Mentions Légales -->
+    <div id="modal-legal" class="modal-overlay">
+        <div class="modal-content max-w-4xl" data-aos="zoom-in">
+            <div class="modal-header">
+                <h3 class="text-2xl font-orbitron font-bold text-white">MENTIONS LÉGALES</h3>
+                <button onclick="closeModal('legal')" class="close-btn text-3xl text-gray-400 hover:text-white transition-colors">&times;</button>
+            </div>
+            <div class="modal-body max-h-96 overflow-y-auto">
+                <div class="space-y-6 text-sm text-gray-300 font-inter leading-relaxed">
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">1. IDENTIFICATION DE L'ÉDITEUR</h4>
+                        <p><strong>Dénomination sociale :</strong> SLIFER SOLUTIONS</p>
+                        <p><strong>Forme juridique :</strong> SASU</p>
+                        <p><strong>Adresse du siège social :</strong> 78 Avenue des Champs Elysées, Bureau 326, 75008 Paris</p>
+                        <p><strong>Capital social :</strong> 500,00 €</p>
+                        <p><strong>RCS :</strong> 953 245 784 00012</p>
+                        <p><strong>TVA intracommunautaire :</strong> FR48953245784</p>
+                        <p><strong>Email :</strong> solutions@slifer.fr</p>
+                        <p><strong>Téléphone :</strong> 07 56 87 07 51</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">2. HÉBERGEMENT</h4>
+                        <p><strong>Hébergeur :</strong> Hostinger International Ltd</p>
+                        <p><strong>Adresse :</strong> Jonavos g. 60C, 44192 Kaunas, Lituanie</p>
+                        <p><strong>Téléphone :</strong> +370 52 00 32 10</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">3. DIRECTEUR DE PUBLICATION</h4>
+                        <p><strong>Directeur de la publication :</strong> William DESMAS</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">4. PROPRIÉTÉ INTELLECTUELLE</h4>
+                        <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+                        <p>La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">5. PROTECTION DES DONNÉES PERSONNELLES</h4>
+                        <p><strong>Responsable du traitement :</strong> SLIFER SOLUTIONS</p>
+                        <p><strong>Finalité :</strong> Les données collectées via les formulaires de contact sont utilisées uniquement pour répondre à vos demandes et vous proposer nos services.</p>
+                        <p><strong>Durée de conservation :</strong> 3 ans maximum</p>
+                        <p><strong>Vos droits :</strong> Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, contactez-nous à : solutions@slifer.fr</p>
+                        <p><strong>CNIL :</strong> Vous avez le droit de déposer une plainte auprès de la CNIL (www.cnil.fr)</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">6. COOKIES</h4>
+                        <p>Ce site n'utilise aucun cookie. Aucune donnée de navigation n'est collectée ou stockée sur votre appareil lors de votre visite.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-3">7. RESPONSABILITÉ</h4>
+                        <p>Les informations contenues sur ce site sont aussi précises que possible et le site est remis à jour à différentes périodes de l'année. Toutefois, des erreurs ou omissions peuvent survenir. L'internaute devra donc s'assurer de l'exactitude des informations et signaler toute erreur.</p>
+                        <p>L'utilisation des informations et contenus disponibles sur l'ensemble du site ne sauraient en aucun cas engager la responsabilité de SLIFER SOLUTIONS.</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
