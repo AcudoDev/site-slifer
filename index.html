@@ -11,6 +11,9 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
@@ -227,13 +230,13 @@
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Société</label>
-                        <input type="text" name="societe" class="form-input form-input--primary" placeholder="Nom de votre entreprise">
+                        <label class="form-label">Sujet</label>
+                        <input type="text" name="sujet" class="form-input form-input--primary" placeholder="Objet de votre demande">
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Projet IA *</label>
-                        <textarea name="projet_ia" required rows="4" class="form-input form-input--primary" placeholder="Décrivez votre projet d'intelligence artificielle et vos objectifs..."></textarea>
+                        <label class="form-label">Message *</label>
+                        <textarea name="message" required rows="4" class="form-input form-input--primary" placeholder="Décrivez votre projet d'intelligence artificielle et vos objectifs..."></textarea>
                     </div>
                     
                     <div class="tech-modal__footer">
@@ -285,20 +288,13 @@
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Type d'acteur immobilier</label>
-                        <select name="type_acteur" class="form-input form-input--secondary">
-                            <option value="">Sélectionner votre profil</option>
-                            <option value="promoteur">Promoteur immobilier</option>
-                            <option value="investisseur">Investisseur</option>
-                            <option value="marchand-biens">Marchand de biens</option>
-                            <option value="agent">Agent immobilier</option>
-                            <option value="autre">Autre</option>
-                        </select>
+                        <label class="form-label">Sujet</label>
+                        <input type="text" name="sujet" class="form-input form-input--secondary" placeholder="Objet de votre demande">
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Besoins & Objectifs *</label>
-                        <textarea name="besoins_objectifs" required rows="4" class="form-input form-input--secondary" placeholder="Décrivez vos besoins en modernisation, reproductibilité ou optimisation d'opérations..."></textarea>
+                        <label class="form-label">Message *</label>
+                        <textarea name="message" required rows="4" class="form-input form-input--secondary" placeholder="Décrivez vos besoins en modernisation, reproductibilité ou optimisation d'opérations..."></textarea>
                     </div>
                     
                     <div class="tech-modal__footer">

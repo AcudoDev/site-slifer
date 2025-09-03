@@ -1,6 +1,10 @@
 // ===== INITIALIZATION =====
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS
+    // IMPORTANT: Configurez les restrictions de domaine dans EmailJS Dashboard
+    emailjs.init("8mW1xhTwiPr6YCAkg"); // Clé publique - sécurisée par restrictions de domaine
+    
     // Initialize AOS animations
     AOS.init({
         duration: 1000,
@@ -84,34 +88,45 @@ document.addEventListener('keydown', function(e) {
 
 // ===== FORM SUBMISSION =====
 
+function buildMessage(data, type) {
+    let message = '';
+    
+    if (type === 'solutions') {
+        message = `DEMANDE SLIFER SOLUTIONS\n\n`;
+        message += `Sujet: ${data.sujet || 'Non spécifié'}\n`;
+        message += `Message:\n${data.message || 'Non spécifié'}\n\n`;
+        message += `---\nEnvoyé le: ${new Date().toLocaleString('fr-FR')}`;
+    } else {
+        message = `DEMANDE SLIFER HOLDINGS\n\n`;
+        message += `Sujet: ${data.sujet || 'Non spécifié'}\n`;
+        message += `Message:\n${data.message || 'Non spécifié'}\n\n`;
+        message += `---\nEnvoyé le: ${new Date().toLocaleString('fr-FR')}`;
+    }
+    
+    return message;
+}
+
 function submitForm(event, type) {
     event.preventDefault();
     
     const form = event.target;
     
-    // Collect form data with proper field names
-    const formElements = form.elements;
-    const data = {};
+    // Collect form data
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
     
-    // Get all form inputs with proper handling
-    for (let i = 0; i < formElements.length; i++) {
-        const element = formElements[i];
-        if (element.type !== 'submit' && element.name !== '') {
-            data[element.name] = element.value;
-        } else if (element.type !== 'submit' && element.placeholder) {
-            // Use placeholder as fallback identifier
-            const fieldName = element.placeholder.toLowerCase().replace(/[^a-z]/g, '_');
-            data[fieldName] = element.value;
-        }
-    }
-    
-    // Determine email destination
+    // Determine email destination and service details
     const emailDestination = type === 'solutions' ? 'solutions@slifer.fr' : 'holdings@slifer.fr';
+    const serviceID = 'service_r5ji46w'; // Même service pour les deux formulaires
+    const templateID = type === 'solutions' ? 'template_3u4qiic' : 'template_bv1ejil';
     
-    // Add metadata
-    data.destination_email = emailDestination;
-    data.form_type = type;
-    data.timestamp = new Date().toISOString();
+    // Prepare template parameters for EmailJS (matching your template variables)
+    const templateParams = {
+        title: 'Nouveau Message',
+        name: data.nom || 'Nom non fourni',
+        email: data.email || 'Email non fourni',
+        message: buildMessage(data, type)
+    };
     
     // Show loading state
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -119,44 +134,32 @@ function submitForm(event, type) {
     submitBtn.innerHTML = '<span>Envoi en cours...</span>';
     submitBtn.disabled = true;
     
-    // Log form data for debugging (remove in production)
-    console.log('Form submission data:', data);
-    
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-        // Show success message
-        showNotification(`Message envoyé avec succès !`, 'success');
-        
-        // Reset button
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        
-        // Reset form
-        form.reset();
-        
-        // Close modal
-        closeModal(type);
-        
-        // In real implementation, you would send the data to your backend:
-        // fetch('/api/contact', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // })
-        // .then(response => response.json())
-        // .then(result => {
-        //     if (result.success) {
-        //         showNotification('Message envoyé avec succès !', 'success');
-        //     } else {
-        //         showNotification('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
-        //     }
-        // })
-        // .catch(error => {
-        //     console.error('Error:', error);
-        //     showNotification('Erreur de connexion. Veuillez réessayer.', 'error');
-        // });
-        
-    }, 2000);
+    // Send email via EmailJS
+    emailjs.send(serviceID, templateID, templateParams)
+        .then(function(response) {
+            console.log('Email envoyé avec succès:', response);
+            
+            // Show success message
+            showNotification(`Message envoyé avec succès à ${emailDestination} !`, 'success');
+            
+            // Reset form
+            form.reset();
+            
+            // Close modal
+            closeModal(type);
+            
+        }, function(error) {
+            console.error('Erreur lors de l\'envoi:', error);
+            
+            // Show error message
+            showNotification('Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement.', 'error');
+            
+        })
+        .finally(function() {
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
 }
 
 // ===== NOTIFICATION SYSTEM =====
